@@ -1,7 +1,6 @@
-var admin, Name;
-Name = 'John';
-admin = Name;
-alert(admin);
+var Admin, Name;
+Name = 'John', Admin = Name;
+console.log(Admin);
 
-var ourPlanetName
-var userName
+var ourPlanetName;
+var userName;

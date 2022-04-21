@@ -23,3 +23,27 @@ console.log(str5);
 
 var str6 = '멍멍이\t\t\t야옹이';
 console.log(str6);
+
+var ex1 = '100'  //str
+
+var ex2 = '\n'  //탈출문자는 문자열
+
+
+// 템플릿 리터럴 (ES6+ 문법)
+// ``(백틱)으로 문단 단위의 문자열 처리
+// 변수와 문자열 결합을 간편하게 처리할 수 있다(`${변수}`)
+var template = `
+<ul>
+    <li>
+        <a href="#">Home</a>
+    </li>
+</ul>`;
+console.log(template);
+
+//학생 이름과 영어 점수를 같이 출력하고 싶은데 학생이 여러 명일 경우
+var studentName = '김철수';
+var engScore = 88;
+
+console.log(studentName + ' 님의 영어점수는 ' + engScore + '점입니다. ');
+// 템플릿 리터럴을 쓰는 경우 : 백틱과 ${변수}를 쓴다
+console.log(`${studentName} 님의 영어점수는 ${engScore}점입니다.`);
