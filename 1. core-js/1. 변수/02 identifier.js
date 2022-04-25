@@ -27,7 +27,7 @@ var $bye$$ = '괜찮아';
 var _my_family = '내 가족';
 
 // 4. 띄어쓰기 불가능
-// var out vip members address = '서울시';
+// var out vip members address = '띄어쓰기 안 됨';
 var our_vip_mambers_address = 'snake case(비추: js 개발자들이 싫어함)';
 var ourVipMambersAddress = 'camel case(추천)';
 

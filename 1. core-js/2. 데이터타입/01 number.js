@@ -8,6 +8,7 @@ console.log(typeof float); //number
 
 // js는 모든 숫자데이터를 실수값으로 처리(C나 JAVA에서는 정수, 실수 구분)
 console.log(10/4);   //2.5               //  > console.log(10.0/4.0); 이렇게 해야 실수값 나옴
+                                         // parseInt 이 연산자를 써야 나누기의 몫이 나옴
 
 var binary = 0b1001;    //숫자 앞 0b > 2진수값 저장
 console.log(binary);    //9

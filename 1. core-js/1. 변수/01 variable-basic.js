@@ -8,7 +8,7 @@ var user, age;
 var user = 'John', age = 25, message = 'Hello';
 
 /*2. 변수의 초기화(=initialize : 값을 저장)(reset X)
-        =는 대입의 의미(equal X)
+        =는 대입의 의미(동등 X)
         10+20의 값을 변수 result에 대입해라(저장해라)
         변수는 항상 좌항에 따옴표 없이*/
 result = 10 + 20;
