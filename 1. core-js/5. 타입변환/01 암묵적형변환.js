@@ -11,7 +11,7 @@
      +null  : 0
      +hello : NaN
 
-# Falsy : undefined, null, 0, NaN
+# Falsy : undefined, null, 0, NaN, ''
  Truthy : Falsy를 제외한 모든 값
 
 */

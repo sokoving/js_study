@@ -5,6 +5,11 @@
 실제 사용할 때는 button을 누르면
     pets.push('데이터') 코드가 실행되면서
     li에 데이터가 추가된다.
+
+pets.push(`끝에`, `데이터`, '추가');
+pets.pop();
+pets.shift();
+pets.unshift('처음에', '데이터', '추가");
 */
 
 var pets = ['멍멍이', '야옹이', '짹짹이'];
