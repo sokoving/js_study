@@ -35,12 +35,14 @@ var down = 50;
 // 게임 시작
 while(true){
     // 정답 맞추기 칸 띄우기
-    var i = +prompt(`숫자를 입력하세요 : ${up}~${down}`)
+
+    var i = +prompt(`숫자를 입력하세요 : ${up}~${down}`);
     console.log(i);
     chanceLeft--;           // 남은 기회 차감
-    var chanceMessage = `${chanceLeft}번의 기회가 남았습니다.`       // 남은 기회 메시지 변수
 
-    //(추가)사용자가 제대로 된 값 입력하게 할 것(추가)
+
+    var chanceMessage = `${chanceLeft}번의 기회가 남았습니다.`;       // 남은 기회 메시지 변수
+
 
     // up & down
     if (i < answer) {
