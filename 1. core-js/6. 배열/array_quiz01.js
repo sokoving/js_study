@@ -19,27 +19,33 @@
    입력한 숫자 목록 [10,20,30,60,100,200,500,1000]   
    입력한 숫자 총합: 1920
    ---
-
    */
 
-var nums = [];
+/*
+note
+1. push 전에 '그만' 입력되면 break
+      >> 순서 바뀌면 numbers에 '그만' 추가됨
+   n 입력을 문자로 받고
+   '그만'과 동일한지 체크 > break;
+   numbers에 n push할 때 숫자로 변환
+2. 총합 구하기
+*/
 
-//nums 입력받기, 그만 > break
-while (true){
-   var plus = +prompt(`숫자를 입력하세요.\n그만두려면 \'그만\'이라고 입력하세요!`);
-   nums.push(plus);
-   console.log(nums);
+//사용자의 입력숫자를 저장할 배열
+var numbers = [];
 
-   if (plus === 그만) {
-      break;
-   }
+while (true) {
+    var n = prompt('숫자를 입력하세요.\n그만 두려면 \'그만\'이라고 입력하세요.');
+    if (n === '그만') break;
+
+    numbers.push(+n);
 }
 
-//입력받은 숫자 총합 구하기
-var total = 0;
-
-for ( var n of nums){
-   total += n;
+//총합 계산
+if (numbers.length > 0) {
+    var total = 0;
+    for (var num of numbers) {
+        total += num;
+    }
+    alert(`입력한 숫자 목록 [${numbers}]\n입력한 숫자 총합: ${total}`);
 }
-
-alert(`입력한 숫자 목록 \[${nums}\]\n입력한 숫자 총합: ${total}`);
