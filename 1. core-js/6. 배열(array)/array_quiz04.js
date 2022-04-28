@@ -50,7 +50,7 @@ while(idx < studentNum){
 // 점수구간 빈 배열과 자리 10개 만들기
 var graphs = [];
 
-for ( var x = 0; x < 11; x++){
+for ( var i = 0; i < 11; i++){
     graphs.push(0);
 }
 
