@@ -50,9 +50,9 @@ makeLine()
 // x~y까지의 총합을 구해야 함
 // ex) 1~10까지의 총합 : 55, ex) 3~5까지 : 12
 
-function calcRangeTotal (x, y) {      //x와 y의 선언을 function 쓸 때 해줘야 함
+function calcRangeTotal (begin, end) {      //x와 y의 선언을 function 쓸 때 해줘야 함
     var total = 0;
-    for ( var n = x; n <= y; n++) {
+    for ( var n = begin; n <= end; n++) {
         total += n;
     }
     return total;          // function의 결과 total을 원하는 변수에 저장할 수 있다.
@@ -90,3 +90,22 @@ function sayHello(language='한국어') {  //(ES6) 기본값 세팅
 }
 
 sayHello(); 
+
+//매개변수 X return X (실행 결과가 항상 같음)
+function rdd() {
+    console.log(`링딩동 링딩동 링디기디기딩딩딩~`);
+}
+
+rdd();
+makeLine();
+
+//매개변수 X return O (실행 결과가 다를 수 있음)
+function seletRandomPet(){
+    var pets = ['멍멍이', '야옹이', '짹짹이', '어흥이', '부엉이']
+    //0~4까지의 랜덤 정수
+    var rn = Math.floor(Math.random()*pets.length);
+    return pets[rn];
+}
+
+console.log(`선택된 동물: ${seletRandomPet()}`);
+
