@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <!-- #wrap>ul#list1>li{리스트$}*7 -->
+    <div id="wrap">
+        <ul id="list1">
+            <li id = "li1">리스트1</li>
+            <li class = "li2 even">리스트2</li>
+            <li>리스트3</li>
+            <li class="even">리스트4</li>
+            <li>리스트5</li>
+            <li class="even">리스트6</li>
+            <li class = "li7">리스트7</li>
+        </ul>
+    </div>
+
+    <script>
+        //1. id="list1"인 요소에 <li> 요소중  홀수번째 요소만 선택후 배경색상 yellow 적용   
+        const $yellowLi = document.querySelectorAll('#list1 > li:nth-child(2n-1)');
+        console.log($yellowLi);
+        for (let i = 0; i < $yellowLi.length; i++){
+            $yellowLi[i].style.backgroundColor = 'yellow';
+        }
+
+        //2. id="list1"인 요소에 <li> 요소중   짝수번째 요소만 선택후 배경색상 gray 적용  
+        const $grayLi = document.getElementsByClassName('even');
+        console.log($grayLi);
+        for (let i of $grayLi){
+            i.style.backgroundColor = 'gray'
+        }
+
+        //3. id="list1"인 요소에 <li> 요소중   첫번째 <li>요소만 선택후 폰트색상 red 적용   
+        // $oddElems[0].style.color = 'red';
+        const $redLi = document.getElementById('li1');
+        console.log($redLi);
+        $redLi.style.color = 'red';        
+
+        //4. id="list1"인 요소에 <li> 요소중  마지막번째 <li>요소만 선택후 폰트색상 green 적용  
+        const $greenLi = document.getElementsByClassName('li7');
+        console.log($greenLi);
+        $greenLi[0].style.color = 'green';
+             
+
+        //5. id="list1"인 요소에 <li> 요소중  두번째 <li>요소만 선택후 font-style: italic 적용             
+        const $italicLi = document.querySelector('.li2');
+        console.log($italicLi);
+        $italicLi.style.fontStyle = 'italic';
+
+        //6. id="list1"인 요소에 <li> 요소중  3번째 이전 요소만 선택후 
+        //   border: 2px dotted aqua 적용 (1, 2번째만 선택) 
+        const $aquaLI = document.querySelectorAll('#list1 > li:nth-child(-n+2)');
+        console.log($aquaLI);
+
+        for (let i = 0; i < $aquaLI.length; i++){
+            $aquaLI[i].style.border = '2px dotted aqua';
+        }
+
+        /* 6. 앞에서 사용했던 변수 활용하기
+        const $liArr = [$redLi, $italicLi];
+        for (let $li of $liArr) {
+            $li.style.border = '2px dotted aqua';
+        }
+        */
+        
+
+        //7. id="list1"인 요소에 <li> 요소중  3번째 이후요소만 선택후
+        //   border 2px dashed violet 적용 (3번째부터 끝까지 선택)
+        const $violetLi = document.querySelectorAll('#list1 > li:nth-child(n+3)');
+        console.log($violetLi);
+
+        for (let i of $violetLi){
+            i.style.border = '2px dashed violet';
+        }
+
+        /* 7. li 전체 중에서 1, 2번째만 제외하고 적용하기
+        const $gtThan3Li = document.querySelectorAll('#list1 > li');
+        for (let i = 0; i < $gtThan3Li.length; i++) {
+            if (i === 0 || i === 1) continue;
+            $gtThan3Li[i].style.border = '2px dashed violet';
+        }
+
+        */
+
+    </script>
+
+</body>
+</html>

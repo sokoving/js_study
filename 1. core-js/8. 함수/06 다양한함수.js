@@ -6,7 +6,7 @@ function add(n1, n2) {
 };
 
 console.log(`1. 함수 정의 2`);
-// 함수 리터럴 (함수를 값으로 표현)
+// 함수 리터럴 (함수를 값으로 표현한다.)
 var sub = function(n1, n2) {
     return n1 - n2;
 };

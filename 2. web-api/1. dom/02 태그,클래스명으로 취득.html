@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li id="apple">사과</li>
+        <li id="banana">바나나</li>
+        <li id="grape">포도</li>
+        <li id="pineapple">파인애플</li>
+    </ul>
+
+    <ul>
+        <li>토마토</li>
+        <li>양파</li>
+        <li>피망</li>
+    </ul>
+
+    <script>    
+        // 태그, 클래스로 취득하기 >> 권장하지 않음
+        const $elems = document.getElementsByTagName('li');
+        console.log($elems);    //유사 배열(배열 아님)
+        console.log($elems.__proto__);  //사용할 수 있는 메서드 보기
+
+        //참조나 길이는 사용 가능하지만 배열 아님
+        console.log($elems[0]); // <li id="apple">사과</li>
+        console.log(`elems의 길이 : ${$elems.length}`); //4 > 7 (모든 li를 잡는다)
+        console.log($elems.pop); // undefined
+
+        $elems[2].style.backgroundColor = 'violet';
+        $elems.grape.style.width = 'fit-content';
+
+        
+        //배열 비교용
+        const nums = [1, 2, 3, 4]
+        console.log(nums.__proto__); //사용할 수 있는 메서드 보기
+
+    </script>
+
+</body>
+</html>

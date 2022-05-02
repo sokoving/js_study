@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li class="fr apple">사과</li>
+        <li id="dole-banana" class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+        <li class="fr pine">파인애플</li>
+    </ul>
+
+    <script>
+        /*
+        .querySelector()
+            인수로 css 선택자를 이용할 수 있다
+            해당하는 요소 노드가 여러 개일 경우 첫 번재 노드만 반환(여러 개 잡기 안 됨)
+
+            요소 노드가 존재하지 않으면 null 반환.
+            선택자 문법이 틀리면 DOMException 에러 발생.
+        */
+
+        const $grape = document.querySelector('.grape');
+        // const $grape = document.querySelector('#fruits > li:nth-child(3)');
+        // const $grape = document.querySelector('.banana + li');
+        console.log($grape);
+
+        //querySelector와 getElementById의 선택자 차이
+        const $banana1 = document.querySelector('#dole-banana');  //'' 안에 css 문법에 따라 # 붙임
+        const $banana2 = document.getElementById('dole-banana');  //id를 '' 안에 입력
+
+        $banana1.style.fontWeight = 'bold';
+        $banana2.style.fontSize = '1.5em';
+
+        /*
+          .querySelectorAll()
+            인수로 전달한 css 선택자를 만족하는 요소 노드 전체 반환(여러 개 잡아옴)
+            이때 반환은 '유사배열객체', DOM 컬렉션 객체인 'NodeList'로 됨.
+                >> $elems는 배열 흉내낸 객체(prototype에 pop, push 없음 배열 아님)
+                >> 그래도 index나 length는 쓸 수 있음 
+
+            요소가 존재하지 않으면 빈 NodeList 반환(NodeList[])
+            선택자 문법이 틀리면 DOMException 에러 발생.
+        */
+        const $elems = document.querySelectorAll('.fr');
+        console.log($elems); 
+   
+        //유사배열이라 for문 for~of문 사용 가능
+         for (let i = 0; i < $elems.length; i++){
+             $elems[i].style.color = 'pink';
+         }
+
+         for (let $li of $elems){
+            $li.style.border = '2px dashed gray';
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li id="apple">사과</li>
+        <li id="banana">바나나</li>
+        <li id="grape">포도</li>
+        <li id="pineapple">파인애플</li>
+    </ul>
+
+    <script>    // 태그를 지목하는 벙법
+
+        //body 태그의 객체
+        // console.log(document.body);  //선언은 안 했지만 js 내부에 이미 선언돼 있음.
+
+        //html 태그의 객체
+        // console.log(document.documentElement);
+
+        //id 속성으로 요소 노드 취드(원하는 태그의 객체 가져오기)  >> 제일 먼저 발견되는 id를 잡기 때문에 id는 하나만 부여
+        const $banana = document.getElementById('banana')      // $ > 태그가 들어있는 변수
+        console.log(typeof $banana);     // object
+        
+        console.log($banana.textContent);  // 바나나
+        console.log(typeof $banana.textContent);  // string
+        $banana.textContent = '뻐내너';
+        
+        console.log($banana.style); 
+        console.log(typeof $banana.style); //object
+        $banana.style.color = 'red';
+        $banana.style.backgroundColor = 'yellow';  // css에서는 케밥 케이스(backgroun-color) > js에서는 낙타 케이스로.
+
+        // id 속성이 부여된 요소는 해당 아이디가 자동으로 전역변수로 등록됨
+        // 하지만 아이디와 동명의 변수를 선언하면 교체가 되기 때문에 비추.
+        // let grape = '포도도'
+        grape.textContent = '맛있는 포도';        
+
+    </script>
+
+</body>
+</html>
