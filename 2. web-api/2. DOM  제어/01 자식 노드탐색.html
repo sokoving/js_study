@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <!-- 부모 노드와 자식 노드 중에 어떤 것을 선택해야 하는가? -->
+  
+    <ul id="fruits">
+        <li class="apple">사과</li>
+        <li class="banana">바나나</li>
+        <li class="grape">애플</li>
+    </ul>
+
+    <div class="box">
+        <!-- <p></p> -->
+    </div>
+
+    <script>
+                       // 객체값이 리턴된다
+        const $fruits = document.getElementById('fruits');
+        console.log(typeof $fruits); //object
+        console.log($fruits);
+        console.log($fruits.children);
+        console.log($fruits.childNodes);
+
+        //기존 노드의 모든 자식노드를 탐색, 텍스트노드 제외
+        const $childList = $fruits.children;
+        
+        const $firstChild = $childList[0];
+        const $firstChild2 = $childList.firstChild;
+        console.log($firstChild);
+        console.log($firstChild2);
+
+        console.log(`==================`);
+
+        const $lastChild = $childList[$childList.length];
+        const $lastChild2 = $fruits.lastElementChild;
+
+        console.log($lastChild);
+        console.log($lastChild2);
+        console.log($lastChild === $lastChild2);
+
+        console.log(`============ 자식 요소를 갖고 있는지 확인`);
+        const $box = document.querySelector('.box');
+        console.log($box.hasChildNodes());  //비추: <p>가 없어도 true
+                                            //공백(text)까지 자식으로 침
+        console.log(!!$box.children.length);  //추천: <p>가 없으면 false
+            //자식 있으면 1 이상(true), 없으면 0(false) >> 명시적 논리 변환(!!)
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #greet span {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="greet">
+        Hello <span>JavaScript!</span>
+    </div>
+
+    <script>
+        console.log(`============== 텍스트 취득하기`);
+        const $greet = document.getElementById('greet');
+
+        const text1 = $greet.innerText;
+            //innerText: [비추] 공백 제외, 텍스트만 추출되나 속도가 느리고 css 일부 작동 안 함.
+        console.log(text1);
+        const text2 = $greet.textContent;
+            //textContent: [비추] 의도하지 않은 공백까지 포함한 모든 텍스트 추출
+        console.log(text2);
+        const text3 = $greet.textContent.trim();
+            //textContent.trim(): [추천] trim 함수를 추가해 문자의 앞뒤 공백을 제거하고 텍스트 추출.
+        console.log(text3);
+
+        console.log(`주의: 텍스트 수정 시 텍스트를 감싸는 모든 태그가 사라짐`);
+        // $greet.textContent = 'Hello js!';
+            // $greet의 자식 span 태그가 사라진 채 수정됨
+        //방법 1. 자식인 span의 텍스트 수정
+        $greet.firstElementChild.textContent = 'JS!'
+        // 방법 2. innerHTML > 태그 직접 입력
+        $greet.innerHTML = '안녕 <span>JS!</span>';
+            // innerHTML: HTML 마크업 포함
+            // textContent: HTML 마크업 무시
+
+    </script>
+
+</body>
+</html>

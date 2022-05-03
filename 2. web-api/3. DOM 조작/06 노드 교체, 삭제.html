@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li>사과</li>
+        <li>딸기</li>
+        <li>자몽</li>
+        <li>라임</li>
+        <li>레몬</li>
+        <li>바나나</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const $mango = $fruits.firstElementChild.cloneNode();
+        $mango.textContent = '망고';
+
+        //노드 교체 (사과 > 망고, 태그까지)
+        $fruits.replaceChild($mango, $fruits.firstElementChild);
+         //부모 노드  (새로 넣을 자식(newchild), 뺄 자식(oldChild))
+
+       //노드 삭제
+       $fruits.removeChild($fruits.lastElementChild);
+
+       // 노드 전체 삭제 함수(만들어야 됨)
+       /*
+       function removeAllChild($paraentNode){
+           for (let $li of $paraentNode.children){
+            $paraentNode.removeChild($li);
+           }
+       }
+       문제점> 지우는 즉시 인덱스가 수정돼서
+        0을 지우면 다시 1이 0의 자리로 감
+        0은 남고 기존 2였던 1을 지움
+       */
+
+       //풀이 1. 유사배열을 찐배열로 바꾼다
+
+       function removeAllChild($parentNode) {
+       //풀이 2. 자식이 있으면(길이가 1 이상이면) 계속 첫째를 삭제하라/
+       while(!!$parentNode.children.length){ 
+           $parentNode.removeChild($parentNode.firstElementChild)
+       }
+       
+    /*풀이 3. for 문을 끝에서부터 빼가면서 돌려라
+        for (let i = $parentNode.children.length-1; i >= 0; i--) {
+        $parentNode.removeChild($parentNode.children[i]);
+        }
+    */
+    }
+    
+    console.log($fruits.children);
+    removeAllChild($fruits);
+    console.log($fruits.children);
+       </script>
+
+</body>
+</html>

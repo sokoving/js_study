@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="wrap">
+        <ul id="fruits">
+            <li class="apple">사과</li>
+            <li class="banana">바나나</li>
+            <li class="grape">포도</li>
+        </ul>
+    </div>
+    
+    <table id="board">
+           <tbody>        <!-- 입력하지 않아도, 보이지 않아도 존재  -->
+            <tr>
+                <td>A</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>D</td>
+            </tr>
+        </tbody>
+    </table>
+
+<script>
+    
+        console.log(`============== 노드 탐색의 기준요소 취득`);
+        const $fruits = document.querySelector('#fruits');
+        console.log($fruits);
+        
+        console.log(`============== 부모 탐색`);
+        const $wrap = $fruits.parentElement;
+        console.log($wrap);
+
+        console.log(`============== 바나나를 기준으로 부모형제 탐색`);
+        const $banana = $fruits.children[1];
+        console.log($banana);
+        console.log($banana.parentElement);
+        console.log($banana.parentElement.lastElementChild);
+        console.log($banana.parentElement.parentElement);
+
+        console.log(`============== 다음 형제 노드 탐색`);
+        console.log($banana.nextElementSibling);        //다음(아래) 형제
+        console.log($banana.previousElementSibling);    //이전(위) 형제
+
+        console.log($fruits.firstElementChild.nextElementSibling);
+
+        
+        console.log(`============== 주의(table 태그)`);
+        const $board = document.getElementById('board');
+        console.log($board.firstElementChild.lastElementChild);
+        /*
+         table 태그의 자식 태그는 (입력하지 않아도) 자동으로 tbody가 입력된다.
+         > $board의 첫째 자식은 tr이 아닌 tbody(입력하지 않았는데!)
+         > 해결: 내가 tbody를 입력하거나 주의해서 쓰는 수밖에...
+        */
+
+        
+
+    </script>
+
+</body>
+</html>

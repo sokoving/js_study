@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li>사과</li>
+    </ul>
+
+    <script>
+
+        console.log(`====== 사과 뒤에 바나나 넣기 ====`);
+        const $fruits = document.getElementById('fruits');
+        
+        //4. 함수 만들기
+        function appendNewLi(fName) {
+            //1. 새로운 요소노드를 생성
+            // <li></li>
+            const $newLi = document.createElement('li');
+
+            //2. 생성된 노드에 텍스트 추가
+            // <li>바나나</li>
+            $newLi.textContent = fName;
+
+            //3. 새로운 노드를 추가
+            $fruits.appendChild($newLi);
+        }
+
+        const fruitArr = ['바나나', '복숭아', '포도', '딸기', '수박', '참외', '멜론', '파인애플', '자몽'];
+
+        for (let txt of fruitArr) {
+            appendNewLi(txt);
+        }
+
+
+        const $lemonLi = document.createElement('li');  //<li></li>
+        const $lemonA = document.createElement('a');    //<a></a>
+        $lemonA.textContent = '레몬';   //<a>레몬</a>
+        
+        $lemonLi.appendChild($lemonA); // li > a
+        $fruits.appendChild($lemonLi)  // ul > li > a
+
+        console.log(typeof $fruits);
+        
+        /*
+        가상의 요소가 화면에 나타는 순간(랜더링, live DOM) 메모리↑
+        가상(virtual) + 가상(virtual) =가상    > 메모리 차지가 적다(싸다)
+        활성화(live) + 가상(virtual)  =활성화 > 메모리 차지가 크다(비싸다)
+
+        >> 라이브에서 조립하지 말고 가상에서 완제품 만들어 활성화시키기
+        */
+
+
+
+    </script>
+
+</body>
+</html>

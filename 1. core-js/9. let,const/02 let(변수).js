@@ -19,6 +19,7 @@ console.log(y); // 안녕
 
 // 3. 변수 호이스팅을 일으키지 않음
 // z = 100;  >> ReferenceError
+let z;
 console.log(z);
 
-let z;
+// let z;  >> ReferenceError
