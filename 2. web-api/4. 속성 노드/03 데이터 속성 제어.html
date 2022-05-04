@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul class="users">
+        <li data-user-number="4321" data-role="common">김철수</li>
+        <li data-user-number="9999" data-role="admin">박영희</li>
+    </ul>
+
+    <!-- 자주 사용하는 값이면 쓸 때마다 서버에  왔다갔다 하면 리소스 낭비
+       > data 어트리뷰트를 사용
+         >dataset 객체에 저장돼 있음
+ -->
+
+    <script>
+        const $users = document.querySelector('.users')
+        const [$li1, $li2] = [...$users.children];  //디스트럭처링 우항에 배열이 와야 한다.
+        // $users는 요소 노드, $users.children은 유사배열, [...$users.children]은 배열
+
+        console.log($li1);      // 케밥 케이스 data-user-nubmer: '4321'...
+        console.log($li1.dataset);  // 캐멀 케이스 userNumber: '4321'...
+        console.log($li1.dataset.role);
+        console.log($li1.dataset.userNumber);
+        
+        console.log($li2.dataset.role);  //admin
+        $li2.dataset.role = 'common';
+        console.log($li2.dataset.role); // common
+
+        //김철수 li 태그에 data-user-address 속성 추가(객체의 프로퍼티 동적 추가 참고)
+        $li1.dataset.userAddress = '서울시 중구'; // 어트리뷰트에는 케밥 케이스로 저장됨
+
+        // data-user-address 삭제(객체의 프로퍼티 동정 제거 참고)
+        delete $li1.dataset.userAddress;
+
+
+    </script>
+
+</body>
+</html>

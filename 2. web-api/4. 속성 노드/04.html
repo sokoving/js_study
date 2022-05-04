@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .red {
+            color: red;
+            border: 2px dashed tomato;
+        }
+
+        .blue {
+            color: blue;
+            border: 2px dashed aqua;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box red">안녕</div>
+
+
+    <script>
+        //인라인 스타일 조작(우선순위 1000점)
+        const $box = document.querySelector('.box');
+        // $box.style.color = 'violet';  //인라인 스타일을 조작하는 문법
+        $box.style.fontSize = '1.2em';
+
+        //css로 인라인 스타일 조작 > 관리가 불편하고 고치기가 힘들기 때문에 비추
+        //js로 인라인 스타일 조작 > 우선순위를 높이고 싶을 때 추천
+
+        //클래스 조작
+        //어트리뷰트에서 classList, className 확인
+        // classList: DOMTokenList(2) ['box', 'red', value:'box red'] > 유사 배열
+        // className : "box red" > 문자열
+
+        //className을 수정(비추)
+        $box.className = 'blue'; // 클래스 네임을 변경하면 전체가 바뀜
+        $box.className = 'box blue'; //box 유지하고 싶으면 다시 써야 함
+
+        //className으로 요소에 클래스를 추가
+        $box.classList.add('circle'); //box, red 유지, circle 추가
+        $box.classList.add('aaa', 'bbb', 'ccc'); //클래스 3개 한번에 추가
+
+        //className으로 요소에 클래스를 제거
+        $box.classList.remove('circle');
+        $box.classList.remove('aaa', 'bbb', 'ccc');
+
+                      
+    </script>
+    
+</body>
+</html>
