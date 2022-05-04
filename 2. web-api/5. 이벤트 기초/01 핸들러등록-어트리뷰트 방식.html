@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            margin: 20px;
+        }
+
+        .box.red {
+            background: red;
+        }
+        
+        .box.green {
+            background: yellowgreen;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!--
+    이벤트 핸들러 어트리뷰트 방식
+     - 이벤트 핸들러를 HTML 요소에 직접 지정하는 방법
+     - 속성명 : on + 이벤트 타입
+       속성값 : 이벤트 핸들러 함수의 호출문
+     + JS와 HTML의 분리를 위해 사용하지 않는 것 권장
+-->
+
+
+    <!--        on+이벤트타입="이벤트 핸들러 이름()"    -->
+    <div class="box" onclick="sayHello()"></div>
+    <div class="box red" onclick="grow()"></div>
+    <div class="box green" onclick="showText()"></div>
+    
+    <!-- 이벤트를 만들고 특정 요소에 부여할 수 있다 -->
+    <script>
+        /*
+        이벤트 핸들러 함수
+            -특정 이벤트가 발생했을 때 브라우저가 대신 호출할 함수
+        */
+        function sayHello(){
+            alert('메롱~~ 안녕!');
+        }
+
+        function grow(){
+            const $box = document.querySelector('.red');
+            $box.style.width = '200px'
+        }
+
+        // green 박스를 클릭했을 때
+        // 박스 정중앙에 '안녕'이라는 텍스트가 등장하는
+        // 이벤트 핸들러 함수 정의하기
+        function showText(){
+            const $greenbox = document.querySelector('.green');
+            $greenbox.textContent = '안녕';
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .hide {
+            display: none;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <button id="hider">텍스트 숨기기!!</button>
+    
+    <div class="text">안녕하세요~~</div>
+
+    <!-- Quiz01 버튼 '텍스트 숨기기'를 누르면 '안녕하세요'가 사라지고
+         버튼은 '텍스트 보이기'로 바뀜 -->         
+
+         <!-- 개선점: 텍스트 숨기기 > 텍스트 보이기로 돌아오기 -->
+    <script>
+
+    const $text = document.querySelector('.text');
+    const $button = document.querySelector('#hider');
+    
+    const hideText = function() {
+        $text.classList.toggle('hide');
+        $button.textContent = '텍스트 보이기~';
+    }
+
+    $button.onclick = hideText;
+
+
+    </script>
+
+</body>
+</html>

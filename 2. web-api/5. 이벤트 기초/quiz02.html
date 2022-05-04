@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu ul {
+            margin: 0;
+            list-style: none;
+            padding-left: 20px;
+            display: none;
+        }
+        .menu .title {
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .menu .title::before {
+            content: '▶ ';
+            font-size: 80%;
+            color: green;
+        }
+        .menu.open .title::before {
+            content: '▼ ';
+        }
+        .menu.open ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- #lunches.menu>span.title+ul>li*4 -->
+    <div id="lunches" class="menu">
+        <span class="title">추천 메뉴(Click Me!)</span>
+        <ul>
+            <li>돈까스</li>
+            <li>군만두</li>
+            <li>볶음밥</li>
+            <li>마파두부</li>
+        </ul>
+    </div>
+
+    <!-- Quiz 02 추천메뉴 클릭 >
+        화살표를 ▶ 에서 ▼로 바꾸고 li 목록을 보여주기
+        다시 클릭하면 전 상태로 돌아가기 -->
+        <!-- 개선점: 클릭 이벤트를 span으로 한정시킬 것 -->
+    <script>
+
+        const $lunches = document.getElementById('lunches');
+        //클릭하면 $lunches의 클래스에 open 추가 
+        const open = function(){
+            $lunches.classList.toggle('open');
+        }
+
+        $lunches.onclick = open;      
+
+
+    </script>
+
+
+   
+</body>
+</html>

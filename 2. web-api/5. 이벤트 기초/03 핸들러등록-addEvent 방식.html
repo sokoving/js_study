@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">클릭하세요</button>
+
+    <script>
+        /*
+        프로퍼티 방식으로 핸들러를 등록할 경우 같은 이벤트 타입 동시 적용 불가한 문제를 해결할 수 있다
+        콜백 함수 이용
+        */
+        const $btn = document.getElementById('btn');
+
+        //이벤트 핸들러
+        function sayHello() {
+            alert('안녕하세요~');
+        }
+    //addEvent 방식의 핸들러 등록
+    //프로퍼티 방식과 달리 하나의 이벤트에 여러 핸들러 등록 가능
+        // 인수는 (이벤트 타입, 콜백함수)  >이벤트 타입은 on을 뗀 문자 타입
+        $btn.addEventListener('click', sayHello); 
+        // 콜백함수자리에는 익명함수도 가능
+        $btn.addEventListener('mouseenter', function () {
+            $btn.style.background = 'aqua'    
+        })
+        // 콜백함수자리에는 화살표함수도 가능
+        $btn.addEventListener('click', () => {
+            $btn.style.color = 'red'
+        })
+
+    //addEvent 방식에서 핸들러 삭제(익명 함수는 제거 불가)
+        $btn.removeEventListener('click', sayHello);
+    </script>
+
+</body>
+</html>
