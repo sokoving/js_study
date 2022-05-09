@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .msg{
+            margin-top: 20px;
+            padding: 5px;
+            width: 200px;
+            border-bottom: 1px solid #333;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="text-input">
+    <p class="msg"></p>
+
+    <script>
+
+        const $txtInput = document.getElementById('text-input');
+        
+        //input에 키보드 이벤트 등록           매개변수 이름은 아무거나(보통 e)
+        $txtInput.addEventListener('keyup', function(e){
+            // console.log('키보드 이벤트 발생');
+                    //키보드의 어떤 키를 눌러도 이벤트 발생
+            console.log(e);
+                    //key 프로퍼티에 어떤 키를 눌렀는지 기록 (code 프로퍼티 아님)
+                    //key 프로퍼티를 이용해 특정 키에 관한 이벤트 핸들러 등록 가능
+
+        const $msg = document.querySelector('.msg');
+
+            if(e.key === 'Enter'){
+                // console.log('엔터 누름');  >> 엔터 칠 때마다 발생
+                $msg.textContent = $txtInput.value;
+                $txtInput.value = '';
+                $txtInput.placeholder = '다시 입력해 보세요';
+            }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #fruits {
+            width: 250px;
+            padding: 50px;
+            border: 2px solid red;
+        }
+
+        #fruits li {
+            background: greenyellow;
+            margin-bottom: 10px;
+        }
+
+        #fruits li:first-child {
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+        <li class="banana">Banana</li>
+        <li class="grape">Grape</li>
+        <li class="mango">Mango</li>
+    </ul>
+
+    <script>
+/*
+ 이벤트 전파: 부모-자식 요소간 이벤트 공유 
+        > 의도치 않은 이벤트가 발생할 수 있음
+
+ 캡쳐링(capturing) : ↓ 이벤트가 상위 요소에서 하위 요소로 전파
+                    부모에게 건 이벤트가 자식에도 영향을 미친다
+ 타깃 단계(target phase): 이벤트가 타깃에 도달
+ 버블링(bubbling) : ↑ 이벤트가 하위 요소에서 상위 요소로 전파
+                   자식에서 이벤트가 발생하면 부모 이벤트까지 발생
+
+event.stopPropagation();를 이용해서 버블링을 중단시킬 수도 있고
+성능을 위해 의도적으로 버블링을 이용할 수도 있다.
+
+currentTarget : 이벤트가 걸려있는 요소
+target : 이벤트가 발생할 요소
+
+*/
+
+        const $fruits = document.getElementById('fruits');
+
+        $fruits.onclick = e => {
+            console.log('ul태그에서 클릭이벤트 발생!');
+            console.log('실제로 이벤트가 발생한 요소:', e.target);
+            console.log('이벤트핸들러가 바인딩된 요소:', e.currentTarget);
+        }
+
+        $fruits.firstElementChild.onclick = e => {
+            console.log(`li.apple에서 클릭 이벤트 발생!`);
+        }
+
+
+    </script>
+
+</body>
+</html>

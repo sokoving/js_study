@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css도 외부 css파일을 링크해서 사용하듯이 -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS 파일도 html이 아니라 외부 파일에서 작성해 연결시키는 것이 좋다 -->
+    <script type="module" src="app.js" defer></script>
+
+    <!-- 단 브라우저가 head > body 순서로 읽는데 script가 head에 가 있으면
+    html을 파싱하기도 전에 실행이 되기 때문에 구현되지 않는 문제점이 있다.
+    >> 'defer' 속성을 쓰면  body 렌더링이 끝난 후 실행힐 수 있다. -->
+
+    
+    <!-- 여러 사람이 작업한 파일에 변수, 함수 이름이 중복인 경우 
+    <script type="text/javascript" src="park.js" defer></script>
+    <script type="text/javascript" src="kim.js" defer></script>
+        먼저 불러온 변수를 채택하고 그 뒤 중복되는 변수, 함수는 에러 취급 
+    >> 각각의 모듈 파일에서 전역변수, 함수를 내보낸다
+          export {x, hello};
+    >> html에 연결한 메인 js 파일에서 내보낸 함수를 받는다.
+         import {x, hello} from './kim.mjs'; (kim.mjs의 변수만 채택)
+
+         import * as k from './kim.mjs'; 
+         import * as p from './park.mjs'; 
+        (kim.mjs와 park.mjs에서 가져온 모든 전역변수, 함수에 별칭을 붙여서 쓴다.)
+    -->
+    
+
+    <!-- 외부 js의 type="text/javascript"가 기본(생략 가능)    
+        하지만 외부 모듈이 연결된 js파일이라면 type="module"로 바꿔주기
+    -->
+
+</head>
+<body>
+    
+    <div class="box"></div>
+    
+
+    
+</body>
+</html>
