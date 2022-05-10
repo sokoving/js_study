@@ -133,7 +133,7 @@ section.main .number-wrapper h2 em{
 
 /* 클래스 selected를 부여하면 점프함 */
 .result div.selected{
-    animation: jump 0.3s 5 linear alternate;
+    animation: jump 0.3s infinite linear alternate;
 }
 
 @keyframes jump {
@@ -185,5 +185,25 @@ section.main .number-wrapper h2 em{
         opacity: 1;
         z-index: 100;
         top: 50%;
+    }
+}
+
+/* 정답아이콘에 id=move가 붙으면 아이콘이 이동하는 애니메이션 */
+.icon#move {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    z-index: 50;
+    border: 4px dashed #000;
+    animation: move 1s linear forwards;
+}
+@keyframes move {
+    0% {
+        top: 0;
+        transform: scale(1) rotate(0) translateX(0);
+    }
+    100% {
+        top: 10%;
+        transform: scale(2) rotate(720deg) translateX(-50%);
     }
 }
