@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- RESET CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">-->
+    <!-- jQuery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title></title>
+
+    <style>
+
+        .box{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background: pink;
+            margin: 50px;
+            text-align: center;
+
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+        }
+        .btn{
+            background: aqua;
+        }
+        .btn2{
+            background: gray;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+    
+    <button class="btn">콕!</button>
+    <button class="btn2">콕2</button>
+
+    <script>
+
+        $('.btn').click(function(e) {
+            $('.box').css('background', 'aqua');
+            $('.box').text('콕!')
+        })
+
+        $('.box').mouseenter(function(e){
+            // this : 나 자신(self) (화살표 함수에서 작동 안 함)
+            $(this).css('border', '2px dashed blue')
+        })
+
+        // addEventListener
+        $('.btn2').on('click', e => {
+            alert('콕콕!!');
+        })
+
+        // 이벤트 타입 여러 개 부여
+        $('.box').on({
+            click: function(e) {
+                $(this).css('transform', 'rotate(45deg)')
+            },
+            dblclick: function(e) {
+                $(this).hide();
+            },
+            mouseleave: function(e) {
+                $(this).css('border-radius', '50%');
+            },
+        });
+
+    </script>
+
+</body>
+
+</html>
