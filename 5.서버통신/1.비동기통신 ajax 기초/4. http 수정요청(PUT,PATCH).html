@@ -22,7 +22,8 @@
                         근데 sql단위에서 처리가 가능하기 때문에 주로 PUT 씀
                 2. PATCH: 일부수정 가능.
             */
-            xhr.open('PUT', 'http://localhost:5000/user/2')
+            xhr.open('PUT', 'http://localhost:5000/user/2');
+            // xhr.open('PATCH', 'http://localhost:5000/user/2');
 
             const modData = {
                 userName: '영희팍',
