@@ -50,7 +50,7 @@ var favorite = fruits[1];
 console.log(`제일 좋아하는 과일: ${favorite}`);
 
 // 7. 배열 요소 수정
-fruits[3] = '파인애플'  //복숭아가 파인애플로 수정
+fruits[3] = '파인애플';  //복숭아가 파인애플로 수정
 console.log(fruits);
 
 

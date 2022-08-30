@@ -13,5 +13,5 @@ console.log(10/4);   //2.5               //  > console.log(10.0/4.0); 이렇게 
 var binary = 0b1001;    //숫자 앞 0b > 2진수값 저장
 console.log(binary);    //9
 
-// NaN(Not a Numbeer): 산술 연산 불가능을 표현하는 값
+// NaN(Not a Number): 산술 연산 불가능을 표현하는 값
 console.log(10/'메롱');  //NaN
