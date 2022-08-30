@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,11 @@
             justify-content: space-evenly;
             width: 100%;
         }
+
         .info {
             width: 60%;
         }
+
         .detail {
             width: 30%;
             border: 2px dashed gray;
@@ -25,6 +28,7 @@
     </style>
 
 </head>
+
 <body>
 
     <button id="load">json 가상서버에서 user 데이터 불러오기</button>
@@ -32,8 +36,6 @@
     <section class="info">
         <ul class="content">
             <!-- user 데이터 목록 배치 -->
-
-
         </ul>
         <div class="detail">
             <div class="account">계정: <span class="acc"></span> </div>
@@ -43,8 +45,8 @@
     </section>
 
     <script>
-  // 서버가 응답한 정보를 화면에 렌더링
-  function makeUserListDOM(responseJsonData){
+        // 서버가 응답한 정보를 화면에 렌더링
+        function makeUserListDOM(responseJsonData) {
             /*
                 서버가 응답한 데이터는 마치 자바스크립트의
                 객체, 배열 형태로 보이지만 사실은 아닙니다.
@@ -68,11 +70,17 @@
                 const $li = document.createElement('li');
 
                 // 디스트럭쳐링하면 ${user.account}를 ${account} 이렇게 써도 됨
-                const {account, userName, address, id} = user;
+                const {
+                    account,
+                    userName,
+                    address,
+                    id
+                } = user;
 
-                $li.innerHTML = `# 아이디: ${account}, <a data-id=${id} class='detail-btn' href='#'> 이름: ${userName} </a>, 주소: ${address}`;
+                $li.innerHTML =
+                    `# 아이디: ${account}, <a data-id=${id} class='detail-btn' href='#'> 이름: ${userName} </a>, 주소: ${address}`;
                 // 지금 쓰는 ${}는 el 아니고 백틱에서 변수 가져오는 것(?)
-                    // jsp에서는 이렇게 못 씀
+                // jsp에서는 이렇게 못 씀
                 $content.appendChild($li);
                 /*
                  이름에 건 a를 통해 이동하면 동기 처리가 됨
@@ -82,9 +90,9 @@
                 */
             }
             // 이롬 상세보기 버튼 이벤트 부여
-                // li의 부모인 ul에 이벤트를 걸어 버블링으로 이벤트
+            // li의 부모인 ul에 이벤트를 걸어 버블링으로 이벤트
             $content.onclick = e => {
-                if(!e.target.matches('.detail-btn')) return;
+                if (!e.target.matches('.detail-btn')) return;
                 console.log(e.target);
 
                 e.preventDefault(); // a태그 기능 중지(여기서 a태그는 링크용이 아님)
@@ -92,22 +100,23 @@
                 // 상세조회 비동기 통신 시작
                 const xhr = new XMLHttpRequest();
                 const id = e.target.dataset.id;
-                xhr.open('GET', 'http://localhost:5000/user/'+id)
+                xhr.open('GET', 'http://localhost:5000/user/' + id);
                 xhr.send();
 
                 xhr.onload = e => {
-                    if (xhr.status === 200) {                    
+                    if (xhr.status === 200) {
                         //console.log(xhr.response);
                         const userObj = JSON.parse(xhr.response);
                         //console.log(userObj);
-                        const {account, userName, address} = userObj;
+                        const {
+                            account,
+                            userName,
+                            address
+                        } = userObj;
 
-                        document.querySelector('.acc').textContent
-                            = account;
-                        document.querySelector('.nm').textContent
-                            = userName;
-                        document.querySelector('.ad').textContent
-                            = address;
+                        document.querySelector('.acc').textContent = account;
+                        document.querySelector('.nm').textContent = userName;
+                        document.querySelector('.ad').textContent = address;
 
                     } else {
                         console.error('통신 실패!');
@@ -121,20 +130,25 @@
         // 로드버튼 노드 가져오기
         const $loadBtn = document.getElementById("load");
 
-        
-
 
         // 클릭이벤트 부여
         $loadBtn.onclick = e => {
 
-            // # http 요청을 서버로 보내는 방법  
+            // # http 요청을 서버로 보내는 방법
             // 1. XMLHttpRequest 객체 생성
             const xhr = new XMLHttpRequest();
 
-            // 2. http요청 정보 설정 (요청URI, 요청방식)
+            // 2. http 요청 정보 설정 ('요청방식', '요청URL')
+            /*
+                - 요청 방식:
+                a. GET - 조회
+                b. POST - 등록
+                c. PUT - 수정
+                d. DELETE - 삭제
+            */
             xhr.open('GET', 'http://localhost:5000/user');
 
-            // 3. 요청 전송
+            // 3. http 요청 전송
             xhr.send();
 
             // 4. 응답정보 확인
@@ -146,7 +160,7 @@
                 //console.log(xhr.response);
 
                 //응답데이터 렌더링
-                if(xhr.status === 200) {
+                if (xhr.status === 200) {
 
                     makeUserListDOM(xhr.response); // 렌더링 함수
 
@@ -154,10 +168,9 @@
                     console.error('통신 실패!');
                 }
             };
-
         };
-
     </script>
-    
+
 </body>
+
 </html>
